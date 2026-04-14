@@ -26,7 +26,7 @@ export function VariantSelector({
     return null;
   }
 
-  const combinations: Combination[] = variants.map((variant) => ({
+  const combinations: readonly Combination[] = variants.map((variant) => ({
     id: variant.id,
     availableForSale: variant.availableForSale,
     ...variant.selectedOptions.reduce(

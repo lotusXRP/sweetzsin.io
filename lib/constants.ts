@@ -12,7 +12,7 @@ export const defaultSort: SortFilterItem = {
   reverse: false
 };
 
-export const sorting: SortFilterItem[] = [
+export const sorting: readonly SortFilterItem[] = [
   defaultSort,
   { title: 'Trending', slug: 'trending-desc', sortKey: 'BEST_SELLING', reverse: false }, // asc
   { title: 'Latest arrivals', slug: 'latest-desc', sortKey: 'CREATED_AT', reverse: true },
