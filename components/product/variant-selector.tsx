@@ -12,7 +12,7 @@ type Combination = {
 
 export function VariantSelector({
   options,
-  variants
+  variants,
 }: {
   options: ProductOption[];
   variants: ProductVariant[];
@@ -31,8 +31,8 @@ export function VariantSelector({
     availableForSale: variant.availableForSale,
     ...variant.selectedOptions.reduce(
       (accumulator, option) => ({ ...accumulator, [option.name.toLowerCase()]: option.value }),
-      {}
-    )
+      {},
+    ),
   }));
 
   return options.map((option) => (
@@ -49,13 +49,13 @@ export function VariantSelector({
             // Filter out invalid options and check if the option combination is available for sale.
             const filtered = Object.entries(optionParams).filter(([key, value]) =>
               options.find(
-                (option) => option.name.toLowerCase() === key && option.values.includes(value)
-              )
+                (option) => option.name.toLowerCase() === key && option.values.includes(value),
+              ),
             );
             const isAvailableForSale = combinations.find((combination) =>
               filtered.every(
-                ([key, value]) => combination[key] === value && combination.availableForSale
-              )
+                ([key, value]) => combination[key] === value && combination.availableForSale,
+              ),
             );
 
             // The option is active if it's in the selected options.
@@ -78,8 +78,8 @@ export function VariantSelector({
                     'ring-1 ring-transparent transition duration-300 ease-in-out hover:ring-blue-600':
                       !isActive && isAvailableForSale,
                     'relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 dark:before:bg-neutral-700':
-                      !isAvailableForSale
-                  }
+                      !isAvailableForSale,
+                  },
                 )}
               >
                 {value}

@@ -32,8 +32,8 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     getInitialState(),
     (prevState: ProductState, update: ProductState) => ({
       ...prevState,
-      ...update
-    })
+      ...update,
+    }),
   );
 
   const updateOption = (name: string, value: string) => {
@@ -52,9 +52,9 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     () => ({
       state,
       updateOption,
-      updateImage
+      updateImage,
     }),
-    [state]
+    [state],
   );
 
   return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>;

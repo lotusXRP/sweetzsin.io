@@ -1,4 +1,3 @@
-
 # sweetzsin.io
 
 A repository for LotusXRP
