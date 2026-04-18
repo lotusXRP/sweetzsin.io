@@ -5,11 +5,7 @@ import { sorting } from 'lib/constants';
 import ChildrenWrapper from './children-wrapper';
 import { Suspense } from 'react';
 
-export default function SearchLayout({
-  children
-}: {
-  children: React.ReactNode;
-}) {
+export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className="mx-auto flex max-w-(--breakpoint-2xl) flex-col gap-8 px-4 pb-4 text-black md:flex-row dark:text-white">

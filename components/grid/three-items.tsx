@@ -6,7 +6,7 @@ import Link from 'next/link';
 function ThreeItemGridItem({
   item,
   size,
-  priority
+  priority,
 }: {
   item: Product;
   size: 'full' | 'half';
@@ -33,7 +33,7 @@ function ThreeItemGridItem({
             position: size === 'full' ? 'center' : 'bottom',
             title: item.title as string,
             amount: item.priceRange.maxVariantPrice.amount,
-            currencyCode: item.priceRange.maxVariantPrice.currencyCode
+            currencyCode: item.priceRange.maxVariantPrice.currencyCode,
           }}
         />
       </Link>
@@ -44,7 +44,7 @@ function ThreeItemGridItem({
 export async function ThreeItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
-    collection: 'hidden-homepage-featured-items'
+    collection: 'hidden-homepage-featured-items',
   });
 
   if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;

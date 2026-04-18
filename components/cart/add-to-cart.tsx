@@ -10,7 +10,7 @@ import { useCart } from './cart-context';
 
 function SubmitButton({
   availableForSale,
-  selectedVariantId
+  selectedVariantId,
 }: {
   availableForSale: boolean;
   selectedVariantId: string | undefined;
@@ -46,7 +46,7 @@ function SubmitButton({
     <button
       aria-label="Add to cart"
       className={clsx(buttonClasses, {
-        'hover:opacity-90': true
+        'hover:opacity-90': true,
       })}
     >
       <div className="absolute left-0 ml-4">
@@ -64,16 +64,12 @@ export function AddToCart({ product }: { product: Product }) {
   const [message, formAction] = useActionState(addItem, null);
 
   const variant = variants.find((variant: ProductVariant) =>
-    variant.selectedOptions.every(
-      (option) => option.value === state[option.name.toLowerCase()]
-    )
+    variant.selectedOptions.every((option) => option.value === state[option.name.toLowerCase()]),
   );
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
   const selectedVariantId = variant?.id || defaultVariantId;
   const addItemAction = formAction.bind(null, selectedVariantId);
-  const finalVariant = variants.find(
-    (variant) => variant.id === selectedVariantId
-  )!;
+  const finalVariant = variants.find((variant) => variant.id === selectedVariantId)!;
 
   return (
     <form
@@ -82,10 +78,7 @@ export function AddToCart({ product }: { product: Product }) {
         addItemAction();
       }}
     >
-      <SubmitButton
-        availableForSale={availableForSale}
-        selectedVariantId={selectedVariantId}
-      />
+      <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
       </p>

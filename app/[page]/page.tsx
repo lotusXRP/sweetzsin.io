@@ -18,8 +18,8 @@ export async function generateMetadata(props: {
     openGraph: {
       publishedTime: page.createdAt,
       modifiedTime: page.updatedAt,
-      type: 'article'
-    }
+      type: 'article',
+    },
   };
 }
 
@@ -37,7 +37,7 @@ export default async function Page(props: { params: Promise<{ page: string }> })
         {`This document was last updated on ${new Intl.DateTimeFormat(undefined, {
           year: 'numeric',
           month: 'long',
-          day: 'numeric'
+          day: 'numeric',
         }).format(new Date(page.updatedAt))}.`}
       </p>
     </>
